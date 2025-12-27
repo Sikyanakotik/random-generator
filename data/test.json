@@ -1,0 +1,23 @@
+{
+    "generator": {
+        "tags": {
+            "START": {
+                "1": "<<GREETING>>, <<PLANET>>!"
+            },
+            "GREETING": {
+                "1": "Hello",
+                "2": "Good morning",
+                "3": "Good day",
+                "4": "Good evening",
+                "5": "Good night"
+            },
+            "PLANET": {
+                "1": "world",
+                "2": "moon",
+                "3": "Venus",
+                "4": "Mars",
+                "5": "Pluto"
+            }
+        }
+    }
+}

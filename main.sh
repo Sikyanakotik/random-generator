@@ -1,0 +1,1 @@
+python3 src/generator.py data/test.json
