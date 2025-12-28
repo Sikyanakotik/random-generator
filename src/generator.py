@@ -4,6 +4,8 @@ import os
 import random
 from enum import Enum
 
+START_TAG = "START"
+
 SELECT_DELIMITER_LEFT = "<<"
 SELECT_DELIMITER_RIGHT = ">>"
 SELECT_SWITCH_DELIMITER = '|'
@@ -12,12 +14,28 @@ VARIABLE_DELIMITER_RIGHT = "]]"
 VARIABLE_SET_DELIMITER = '='
 DELIMITER_LENGTH = 2
 
+MAX_GENERATOR_ITERATIONS = 50
+
 class TagType (Enum):
     RANDOM = 1
     SWITCH = 2
     VAR_SET = 3
     VAR_GET = 4
     NONE = 0
+
+def load_generator(path):
+    with open(path) as generator_file:
+        generator_json = json.load(generator_file)
+    #print(generator)
+    generator = generator_json["generator"]
+
+    if "variables" not in generator:
+        generator["variables"] = {}
+
+    if START_TAG not in generator["tags"]:
+        raise json.JSONDecodeError(f"{START_TAG} tag not found in generator file.")
+    
+    return generator
 
 def find_next_tag(text: str) -> dict:
     first_SDL_index = text.find(SELECT_DELIMITER_LEFT)
@@ -55,6 +73,12 @@ def find_next_tag(text: str) -> dict:
     before_text, after_text = (text[:tag_open_index], text[(tag_close_index):])
     tag_text = text[(tag_open_index + DELIMITER_LENGTH):(tag_close_index - DELIMITER_LENGTH)]
 
+    if ((SELECT_DELIMITER_LEFT in tag_text) 
+        or (SELECT_DELIMITER_RIGHT in tag_text)
+        or (VARIABLE_DELIMITER_LEFT in tag_text) 
+        or (VARIABLE_DELIMITER_RIGHT in tag_text)):
+        raise Exception("Do not put delimiters inside tags. Use switch tags instead.")
+
     if is_select_tag:
         if SELECT_SWITCH_DELIMITER in tag_text:
             tag_type = TagType.SWITCH
@@ -68,50 +92,38 @@ def find_next_tag(text: str) -> dict:
 
     return {"tag_type": tag_type, "before_text": before_text, "tag_text": tag_text, "after_text": after_text}
 
-def main ():
-    START_TAG = "START"
+def generate(text, generator):
+    iterations_remaining = MAX_GENERATOR_ITERATIONS
 
+    while iterations_remaining > 0:
+        iterations_remaining -= 1
+        next_tag = find_next_tag(text)
+        if next_tag["tag_type"] == TagType.NONE: #... then we're done!
+            return text
+        
+        tag_text = next_tag["tag_text"].strip().upper()
+        match next_tag["tag_type"]:
+            case TagType.RANDOM:
+                values = list(generator["tags"][tag_text].values())
+                tag_replacement = random.choice(values)
+            case _:
+                raise NotImplementedError()
+        text = f"{next_tag["before_text"]}{tag_replacement}{next_tag["after_text"]}"
+
+    if iterations_remaining == 0:
+        return ('ERROR: Maximum iterations for generator reached. Check generation JSON for loops.\n'
+                + f'Text: {text}')
+
+def main ():
     parser = argparse.ArgumentParser(description="Random name generator using JSON generator files")
     parser.add_argument("generator_file", type=str, help="The JSON file defining the generator")
     parser.add_argument("--number", '-n', type=int, default=1, help="The number of generations to return")
     args = parser.parse_args()
 
-    with open(args.generator_file) as generator_file:
-        generator_json = json.load(generator_file)
-    #print(generator)
-    generator = generator_json["generator"]
-    generator["variables"] = {}
-
-    if START_TAG not in generator["tags"]:
-        raise json.JSONDecodeError(f"{START_TAG} tag not found in generator file.")
+    generator = load_generator(args.generator_file)
     
     for _ in range(args.number):
-        text = f'<<{START_TAG}>>'
-        iterations_remaining = 50
-
-        while iterations_remaining > 0:
-            iterations_remaining -= 1
-            next_tag = find_next_tag(text)
-            if next_tag["tag_type"] == TagType.NONE: #... then we're done!
-                print(text)
-                break
-            
-            tag_text = next_tag["tag_text"].strip().upper()
-            match next_tag["tag_type"]:
-                case TagType.RANDOM:
-                    values = list(generator["tags"][tag_text].values())
-                    tag_replacement = random.choice(values)
-                case TagType.SWITCH:
-                    raise NotImplementedError()
-                case TagType.VAR_SET:
-                    raise NotImplementedError()
-                case TagType.VAR_GET:
-                    raise NotImplementedError()
-            text = f"{next_tag["before_text"]}{tag_replacement}{next_tag["after_text"]}"
-
-        if iterations_remaining == 0:
-            print('ERROR: Generator maximum iterations reached. Check generation JSON for loops.')
-
+        print(generate(f'{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}', generator))
 
 if __name__ == "__main__":
 #    try:
