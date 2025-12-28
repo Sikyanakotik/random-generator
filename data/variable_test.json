@@ -1,0 +1,35 @@
+{
+    "generator": {
+        "tags": {
+            "START": {
+                "1": "[[VERB = Run]]<<CONTINUE>>",
+                "2": "[[VERB = 'Dance']]<<CONTINUE>>",
+                "3": "[[VERB = \"Sing\"]]<<CONTINUE>>",
+                "4": "[[VERB = 'Go west']]<<CONTINUE>>",
+                "5": "[[VERB = 'Pet the dog']]<<CONTINUE>>",
+                "6": "<<CONTINUE>>"
+            },
+            "CONTINUE": {
+                "1": "[[VERB]], <<PERSON>>, <<LOWER_VERB | VERB>>!"
+            },
+            "PERSON": {
+                "1": "you",
+                "2": "girl",
+                "3": "boy",
+                "4": "young man",
+                "5": "everyone"
+            },
+            "LOWER_VERB": {
+                "Run": "run",
+                "Dance": "dance",
+                "Sing": "sing",
+                "Go west": "go west",
+                "Pet the dog": "pet the dog",
+                "Default": "default"
+            }
+        },
+        "variables": {
+            "VERB": "Default"
+        }
+    }
+}

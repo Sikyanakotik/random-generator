@@ -101,11 +101,42 @@ def generate(text, generator):
         if next_tag["tag_type"] == TagType.NONE: #... then we're done!
             return text
         
-        tag_text = next_tag["tag_text"].strip().upper()
+        tag_text = next_tag["tag_text"].strip()
         match next_tag["tag_type"]:
             case TagType.RANDOM:
+                if tag_text not in generator["tags"]:
+                    return (f'ERROR: Tag {tag_text} not found.\nText: {text}')
                 values = list(generator["tags"][tag_text].values())
                 tag_replacement = random.choice(values)
+
+            case TagType.VAR_SET:
+                tag_replacement = ''
+                variable, value = tuple(tag_text.split(VARIABLE_SET_DELIMITER, maxsplit=1))
+                variable = variable.strip()
+                value = value.strip()
+                value = value.strip("'\"")
+                generator["variables"][variable] = value
+
+            case TagType.VAR_GET:
+                if tag_text not in generator["variables"]:
+                    return (f'ERROR: Variable {tag_text} used before setting.\nText: {text}')
+                tag_replacement = generator["variables"][tag_text]
+
+            case TagType.SWITCH:
+                tag, variable = tuple(tag_text.split(SELECT_SWITCH_DELIMITER, maxsplit=1))
+                tag = tag.strip()
+                variable = variable.strip()
+
+                if tag not in generator["tags"]:
+                    return (f'ERROR: Tag {tag_text} not found.\nText: {text}')
+                if variable not in generator["variables"]:
+                    return (f'ERROR: Variable {tag_text} used before setting.\nText: {text}')
+                
+                key = generator["variables"][variable]
+                if key not in generator["tags"][tag]:
+                    return (f'ERROR: Invalid key {key} into tag {tag}.\nText: {text}')
+                tag_replacement = generator["tags"][tag][key]
+
             case _:
                 raise NotImplementedError()
         text = f"{next_tag["before_text"]}{tag_replacement}{next_tag["after_text"]}"

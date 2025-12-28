@@ -1,1 +1,1 @@
-python3 src/generator.py data/hello_world.json -n 5
+python3 src/generator.py data/variable_test.json -n 15
