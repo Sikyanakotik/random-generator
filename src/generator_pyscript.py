@@ -1,4 +1,5 @@
-import argparse
+from js import document, fetch
+from pyodide.ffi import create_proxy
 import json
 import random
 from enum import Enum
@@ -22,10 +23,12 @@ class TagType (Enum):
     VAR_GET = 4
     NONE = 0
 
-def load_generator(path):
-    with open(path) as generator_file:
-        generator_json = json.load(generator_file)
-    #print(generator)
+async def load_generator(path):
+    # Fetch JSON over HTTP
+    resp = await fetch(path)
+    text = await resp.text()
+    generator_json = json.loads(text)
+
     generator = generator_json["generator"]
 
     if "variables" not in generator:
@@ -148,20 +151,17 @@ def generate(text, generator):
                 + f'Text: {text}')
 
 
+async def generate_once(event=None):
+    generator_path = document.querySelector("#generator-select").value
+    gen = await load_generator(generator_path)
+    text = f"{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}"
+    result = generate(text, gen)
 
-def main ():
-    parser = argparse.ArgumentParser(description="Random name generator using JSON generator files")
-    parser.add_argument("generator_file", type=str, help="The JSON file defining the generator")
-    parser.add_argument("--number", '-n', type=int, default=1, help="The number of generations to return")
-    args = parser.parse_args()
+    output_div = document.querySelector("#output")
+    output_div.innerText = result
 
-    generator = load_generator(args.generator_file)
-    
-    for _ in range(args.number):
-        print(generate(f'{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}', generator))
 
-if __name__ == "__main__":
-#    try:
-        main()
-#    except Exception(e):
-#        print(e)
+# Hook up page elements after the page loads
+generate_once_proxy = create_proxy(generate_once)
+btn = document.querySelector("#generate-btn")
+btn.addEventListener("click", generate_once_proxy)
