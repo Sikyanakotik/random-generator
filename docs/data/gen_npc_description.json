@@ -353,9 +353,9 @@
             },
             "METAL_COLOUR": {
                 "1": "blackened steel",
-                "2": "burnished steel",
+                "2": "brushed steel",
                 "3": "mirror-polished steel",
-                "4": "grey steel",
+                "4": "matte steel",
                 "5": "browned steel",
                 "6": "gold-plated",
                 "7": "rust-kissed steel",
@@ -426,7 +426,8 @@
                 "light": "<<THEY_CARRY | GENDER>> <<WEAPON_LIGHT>>.",
                 "medium": "<<THEY_CARRY | GENDER>> <<WEAPON_MEDIUM>>.",
                 "heavy": "<<THEY_CARRY | GENDER>> <<WEAPON_HEAVY>>.",
-                "instument": "<<THEY_CARRY | GENDER>> <<WEAPON_INSTRUMENT>>.",
+                "instrument": "<<THEY_CARRY | GENDER>> <<WEAPON_INSTRUMENT>>.",
+                "magic": "<<THEY_CARRY | GENDER>> <<WEAPON_MAGIC>>.",
                 "none": "<<THEY_ARE | GENDER>> unarmed."
             },
             "WEAPON_LIGHT": {
@@ -453,9 +454,9 @@
                 "4": "a <<METAL_COLOUR>> flail paired with a painted <<FABRIC_COLOUR>> shield",
                 "5": "a <<METAL_COLOUR>> battleaxe paired with a painted <<FABRIC_COLOUR>> shield",
                 "6": "a <<METAL_COLOUR>> warhammer paired with a painted <<FABRIC_COLOUR>> shield",
-                "7": "a long <<METAL_COLOUR>> spear in their hands",
-                "8": "a long <<METAL_COLOUR>> halberd in their hands",
-                "9": "a long <<METAL_COLOUR>> glaive in their hands"
+                "7": "a long <<METAL_COLOUR>> spear in <<THEIR | GENDER>> hands",
+                "8": "a long <<METAL_COLOUR>> halberd in <<THEIR | GENDER>> hands",
+                "9": "a long <<METAL_COLOUR>> glaive in <<THEIR | GENDER>> hands"
             },
             "WEAPON_INSTRUMENT": {
                 "1": "a flute case at <<THEIR | GENDER>> side",
@@ -467,6 +468,17 @@
                 "7": "a lyre strapped to <<THEIR | GENDER>> back",
                 "8": "a hurdy-gurdy case at <<THEIR | GENDER>> side",
                 "9": "a portative organ case strapped to <<THEIR | GENDER>> back"
+            },
+            "WEAPON_MAGIC": {
+                "1": "a gnarled staff, topped with a <<SCALES_COLOUR>> crystal, in <<THEIR | GENDER>> hands",
+                "2": "a wooden staff, carved with elaborate runes, in <<THEIR | GENDER>> hands",
+                "3": "a wooden wand in a quick-draw holster",
+                "4": "a <<METAL_COLOUR>> wand in a quick-draw holster",
+                "5": "an orb of clear crystal in <<THEIR | GENDER>> hand, which sparkles with swirling colours",
+                "6": "a sacrifical dagger in an ornate sheath",
+                "7": "a <<METAL_COLOUR>> sickle tucked into <<THEIR | GENDER>> belt",
+                "8": "a quiver full of various arcane scrolls at <<THEIR | GENDER>> side",
+                "9": "a bandolier of various shimmering potions strapped across <<THEIR | GENDER>> chest"
             },
             "DEMEANOUR": {
                 "default": "<<THEY | GENDER>> look<<PLURAL_IF_NOT_NB | GENDER>> at you with <<EMOTION>>."

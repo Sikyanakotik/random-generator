@@ -1,1 +1,0 @@
-python3 src/generator.py data/variable_test.json -n 15
