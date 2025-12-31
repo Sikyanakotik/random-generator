@@ -13,7 +13,7 @@ The system is designed to be extended with new generator definitions by creating
 
 ![Screenshot of web interface](docs/image.png)
 
-The generator is available on Github.io [at this link](docs/index.html). You can also download and host the files on a local Python server using:
+The generator is available on Github.io at [https://sikyanakotik.github.io/random-generator/](https://sikyanakotik.github.io/random-generator/). You can also download and host the files on a local Python server using:
 ```
 python -m http.server 8100
 ```
