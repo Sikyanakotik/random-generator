@@ -25,7 +25,7 @@
                 "Sing": "sing",
                 "Go west": "go west",
                 "Pet the dog": "pet the dog",
-                "Default": "default"
+                "default": "default"
             }
         },
         "variables": {
