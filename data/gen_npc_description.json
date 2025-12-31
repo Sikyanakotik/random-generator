@@ -1,0 +1,491 @@
+{
+    "generator": {
+        "tags": {
+            "START": {
+                "1": "<<SET_GENDER>><<SET_RACE>><<SET_CLASS>><<DESCRIPTION>>"
+            },
+            "SET_GENDER": {
+                "1": "[[GENDER = male]]",
+                "2": "[[GENDER = female]]",
+                "3": "[[GENDER = male]]",
+                "4": "[[GENDER = female]]",
+                "5": "[[GENDER = male]]",
+                "6": "[[GENDER = female]]",
+                "7": "[[GENDER = androgynous]]"
+            },
+            "SET_RACE": {
+                "human": "[[RACE = human]]",
+                "elf": "[[RACE = elf]]",
+                "orc": "[[RACE = orc]]",
+                "halfling": "[[RACE = halfling]]",
+                "catfolk": "[[RACE = catfolk]][[SKIN_COVERING = fur]]",
+                "minotaur": "[[RACE = minotaur]][[SKIN_COVERING = fur]]",
+                "dragonborn": "[[RACE = dragonborn]][[SKIN_COVERING = scales]]",
+                "kobold": "[[RACE = kobold]][[SKIN_COVERING = scales]]"
+            },
+            "SET_CLASS": {
+                "1": "<<SET_CLASS_ADVENTURER>>",
+                "2": "<<SET_CLASS_CIVILIAN>>",
+                "3": "<<SET_CLASS_CIVILIAN>>",
+                "4": "<<SET_CLASS_CIVILIAN>>",
+                "5": "<<SET_CLASS_MILITARY>>"
+            },
+            "SET_CLASS_ADVENTURER": {
+                "fighter": "[[CLASS = fighter]][[ARMOUR = heavy]][[WEAPON = heavy]]",
+                "cleric": "[[CLASS = cleric]][[ARMOUR = medium]][[WEAPON = magic]]",
+                "rogue": "[[CLASS = rogue]][[ARMOUR = light]][[WEAPON = light]]",
+                "wizard": "[[CLASS = wizard]][[ARMOUR = robes]][[WEAPON = magic]]",
+                "bard": "[[CLASS = bard]][[ARMOUR = light]][[WEAPON = instrument]]",
+                "paladin": "[[CLASS = paladin]][[ARMOUR = heavy]][[WEAPON = heavy]]",
+                "barbarian": "[[CLASS = barbarian]][[ARMOUR = clothing]][[WEAPON = heavy]]",
+                "druid": "[[CLASS = druid]][[ARMOUR = light]][[WEAPON = magic]]"
+            },
+            "SET_CLASS_CIVILIAN": {
+                "farmer": "[[CLASS = farmer]][[ARMOUR = clothing]][[WEAPON = none]]",
+                "baker": "[[CLASS = baker]][[ARMOUR = clothing]][[WEAPON = none]]",
+                "smith": "[[CLASS = smith]][[ARMOUR = clothing]][[WEAPON = heavy]]",
+                "rancher": "[[CLASS = rancher]][[ARMOUR = clothing]][[WEAPON = light]]",
+                "musician": "[[CLASS = musician]][[ARMOUR = clothing]][[WEAPON = instrument]]",
+                "banker": "[[CLASS = banker]][[ARMOUR = clothing]][[WEAPON = none]]",
+                "merchant": "[[CLASS = merchant]][[ARMOUR = clothing]][[WEAPON = light]]",
+                "priest": "[[CLASS = priest]][[ARMOUR = clothing]][[WEAPON = magic]]",
+                "trapper": "[[CLASS = trapper]][[ARMOUR = light]][[WEAPON = light]]",
+                "artisan": "[[CLASS = artisan]][[ARMOUR = clothing]][[WEAPON = none]]"
+            },
+            "SET_CLASS_MILITARY": {
+                "guard": "[[CLASS = guard]][[ARMOUR = medium]][[WEAPON = heavy]]",
+                "mercenary": "[[CLASS = mercenary]][[ARMOUR = medium]][[WEAPON = heavy]]",
+                "constable": "[[CLASS = constable]][[ARMOUR = light]][[WEAPON = light]]",
+                "soldier": "[[CLASS = soldier]][[ARMOUR = heavy]][[WEAPON = heavy]]",
+                "sailor": "[[CLASS = sailor]][[ARMOUR = light]][[WEAPON = light]]",
+                "knight": "[[CLASS = knight]][[ARMOUR = heavy]][[WEAPON = heavy]]",
+                "witcher": "[[CLASS = witcher]][[ARMOUR = medium]][[WEAPON = magic]]",
+                "detective": "[[CLASS = detective]][[ARMOUR = clothing]][[WEAPON = light]]"
+            },
+            "DESCRIPTION": {
+                "1": "<<BODY>> <<EQUIPMENT>> <<DEMEANOUR>>"
+            },
+            "BODY": {
+                "1": "You <<ENCOUNTER>> <<A_BEFORE_GENDER | GENDER>> [[GENDER]] [[RACE]] [[CLASS]] with <<SKIN_TONE | RACE>> [[SKIN_COVERING]] and <<HAIR_OR_HORNS | RACE>>."
+            },
+            "EQUIPMENT": {
+                "1": "<<THEY_WEAR | GENDER>> <<ARMOUR | ARMOUR>>, and <<THEY_HAVE_LOWER | GENDER>> <<ACCESSORY | CLASS>>. <<WEAPON | WEAPON>>"
+            },
+            "A_BEFORE_GENDER": {
+                "default": "a",
+                "androgynous": "an"
+            },
+            "THEY_WEAR": {
+                "male": "He wears",
+                "female": "She wears",
+                "androgynous": "They wear"
+            },
+            "THEY_HAVE_LOWER": {
+                "male": "he has",
+                "female": "she has",
+                "androgynous": "they have"
+            },
+            "THEY_CARRY": {
+                "male": "He carries",
+                "female": "She carries",
+                "androgynous": "They carry"
+            },
+            "THEY_ARE": {
+                "male": "He is",
+                "female": "She is",
+                "androgynous": "They are"
+            },
+            "THEIR": {
+                "male": "his",
+                "female": "her",
+                "androgynous": "their"
+            },
+            "THEY": {
+                "male": "He",
+                "female": "She",
+                "androgynous": "They"
+            },
+            "PLURAL_IF_NOT_NB": {
+                "default": "s",
+                "androgynous": ""
+            },
+            "ENCOUNTER": {
+                "1": "encounter",
+                "2": "come across",
+                "3": "meet",
+                "4": "are stopped by",
+                "5": "flag down",
+                "6": "draw the attention of",
+                "7": "are greeted by",
+                "8": "almost bump into"
+            },
+            "THEY_HAVE": {
+                "male": "He has",
+                "female": "She has",
+                "androgynous": "They have"
+            },
+            "SKIN_TONE": {
+                "human": "<<HUMAN_SKIN>>",
+                "elf": "<<ELF_SKIN>>",
+                "orc": "<<ORC_SKIN>>",
+                "halfling": "<<HUMAN_SKIN>>",
+                "catfolk": "<<HAIR_COLOUR_HUMAN>>",
+                "minotaur": "<<HAIR_COLOUR_BROWN>>",
+                "dragonborn": "<<SCALES_COLOUR>>",
+                "kobold": "<<SCALES_COLOUR>>"
+            },
+            "HUMAN_SKIN": {
+                "1": "<<FAIR_SKIN>>",
+                "2": "<<RUDDY_SKIN>>",
+                "3": "<<DARK_SKIN>>"
+            },
+            "ELF_SKIN": {
+                "1": "<<FAIR_SKIN>>",
+                "2": "<<RUDDY_SKIN>>"
+            },
+            "ORC_SKIN": {
+                "1": "<<RUDDY_SKIN>>",
+                "2": "<<GREEN_SKIN>>"
+            },
+            "FAIR_SKIN": {
+                "1": "pale",
+                "2": "alabaster",
+                "3": "ashen",
+                "4": "ivory",
+                "5": "cream"
+            },
+            "RUDDY_SKIN": {
+                "1": "ruddy",
+                "2": "tanned",
+                "3": "olive",
+                "4": "amber",
+                "5": "bronzed",
+                "6": "copper",
+                "7": "ochre"
+            },
+            "DARK_SKIN": {
+                "1": "brown",
+                "2": "mahogany",
+                "3": "ebony",
+                "4": "sepia",
+                "5": "russet"
+            },
+            "GREEN_SKIN": {
+                "1": "sallow",
+                "2": "emerald",
+                "3": "mossy",
+                "4": "jade",
+                "5": "green-tinged"
+            },
+            "SCALES_COLOUR": {
+                "1": "ruby",
+                "2": "emerald",
+                "3": "sapphire",
+                "4": "onyx",
+                "5": "pearlescent",
+                "6": "golden",
+                "7": "silver",
+                "8": "brassy",
+                "9": "copper",
+                "10": "cobalt"
+            },
+            "HAIR_OR_HORNS": {
+                "kobold": "<<HORN_ADJ>> horns",
+                "dragonborn": "<<HORN_ADJ>> horns",
+                "minotaur": "<<HORN_ADJ>> horns",
+                "catfolk": "a <<HAIR_ADJ>> <<HAIR_COLOUR_HALFLING>> mane",
+                "default": "<<HAIR>>"
+            },
+            "HAIR": {
+                "1": "a shaved head",
+                "2": "hair tied under a <<FABRIC_COLOUR>> headscarf",
+                "3": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "4": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "5": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "6": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "7": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "8": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "9": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair",
+                "10": "<<HAIR_ADJ>> <<HAIR_COLOUR | RACE>> hair"
+            },
+            "HAIR_COLOUR": {
+                "default": "<<HAIR_COLOUR_HUMAN>>",
+                "elf": "<<HAIR_COLOUR_ELF>>",
+                "orc": "<<HAIR_COLOUR_ELF>>",
+                "halfling": "<<HAIR_COLOUR_HALFLING>>"
+            },
+            "HAIR_COLOUR_HUMAN": {
+                "blond": "<<HAIR_COLOUR_BLOND>>",
+                "brown": "<<HAIR_COLOUR_BROWN>>",
+                "red": "<<HAIR_COLOUR_RED>>",
+                "black": "<<HAIR_COLOUR_BLACK>>"
+            },
+            "HAIR_COLOUR_ELF": {
+                "blond": "<<HAIR_COLOUR_BLOND>>",
+                "brown": "<<HAIR_COLOUR_BROWN>>",
+                "black": "<<HAIR_COLOUR_BLACK>>"
+            },
+            "HAIR_COLOUR_HALFLING": {
+                "brown": "<<HAIR_COLOUR_BROWN>>",
+                "red": "<<HAIR_COLOUR_RED>>",
+                "black": "<<HAIR_COLOUR_BLACK>>"
+            },
+            "HAIR_COLOUR_BLOND": {
+                "1": "white",
+                "2": "sandy",
+                "3": "golden",
+                "4": "flaxen",
+                "5": "platinum"
+            },
+            "HAIR_COLOUR_BROWN": {
+                "1": "brown",
+                "2": "mahogany",
+                "3": "chestnut",
+                "4": "mousy",
+                "5": "walnut brown"
+            },
+            "HAIR_COLOUR_RED": {
+                "1": "ginger",
+                "2": "auburn",
+                "3": "maroon",
+                "4": "copper",
+                "5": "red"
+            },
+            "HAIR_COLOUR_BLACK": {
+                "1": "black",
+                "2": "ebony",
+                "3": "salt-and-pepper",
+                "4": "raven-black",
+                "5": "sable"
+            },
+            "HORN_ADJ": {
+                "1": "short",
+                "2": "long",
+                "3": "spiral",
+                "4": "curling",
+                "5": "needle-like",
+                "6": "blunt",
+                "7": "broken",
+                "8": "cracked"
+            },
+            "HAIR_ADJ": {
+                "1": "close-cropped",
+                "2": "brush-cut",
+                "3": "short",
+                "4": "undercut",
+                "5": "shoulder-length",
+                "6": "messy",
+                "7": "unkempt",
+                "8": "braided",
+                "9": "neat",
+                "10": "long",
+                "11": "wild",
+                "12": "bushy",
+                "13": "loose",
+                "14": "tied-back",
+                "15": "curly",
+                "16": "wavy",
+                "17": "straight",
+                "18": "slicked-back",
+                "19": "spiky"
+            },
+            "FABRIC_COLOUR": {
+                "1": "burgundy",
+                "2": "brown",
+                "3": "sunflower yellow",
+                "4": "forest green",
+                "5": "deep indigo",
+                "6": "dark brown",
+                "7": "tan",
+                "8": "black",
+                "9": "white",
+                "10": "beet red",
+                "11": "leaf green",
+                "12": "beige"
+            },
+            "ARMOUR": {
+                "light": "<<ARMOUR_LIGHT>>",
+                "medium": "<<ARMOUR_MEDIUM>>",
+                "heavy": "<<ARMOUR_HEAVY>>",
+                "robes": "<<ARMOUR_ROBES>>",
+                "clothing": "<<ARMOUR_CLOTHING>>"
+            },
+            "ARMOUR_LIGHT": {
+                "gambeson": "a <<FABRIC_PATTERN>> gambeson",
+                "leather": "<<LEATHER_COLOUR>> leather armour",
+                "studden leather": "<<LEATHER_COLOUR>> leather armour, studded with <<METAL_COLOUR>> studs",
+                "leather jacket": "a thick <<LEATHER_COLOUR>> leather jacket"
+            },
+            "ARMOUR_MEDIUM": {
+                "chainmail": "a hauberk of <<METAL_COLOUR>> chainmail with a <<FABRIC_PATTERN>> surcoat",
+                "scale mail": "a shirt of <<METAL_COLOUR>> scale mail with a <<FABRIC_PATTERN>> surcoat",
+                "brigandine": "<<LEATHER_COLOUR>> leather brigandine, sewn with <<METAL_COLOUR>> plates",
+                "cuirass": "a <<METAL_COLOUR>> cuirass with a <<FABRIC_PATTERN>> surcoat"
+            },
+            "ARMOUR_HEAVY": {
+                "plate": "a full suit of <<METAL_COLOUR>> plate",
+                "splint": "a full suit of <<METAL_COLOUR>> splint armour with a <<FABRIC_PATTERN>> surcoat",
+                "plate and chain": "a <<METAL_COLOUR>> cuirass over similar chainmail"
+            },
+            "ARMOUR_ROBES": {
+                "flowing": "long, flowing robes of <<FABRIC_PATTERN>> silk",
+                "ascetic": "a simple <<FABRIC_COLOUR>> robe of coarse fabric",
+                "vestments": "two-layered vestments, with a <<FABRIC_PATTERN>> stole over solid <<FABRIC_COLOUR>>",
+                "gi": "a rugged <<FABRIC_COLOUR>> canvas gi",
+                "formal": "a formal robe, <<FABRIC_COLOUR>> with a <<FABRIC_PATTERN>> sash"
+            },
+            "ARMOUR_CLOTHING": {
+                "tunic": "a simple <<FABRIC_COLOUR>> tunic",
+                "overalls": "<<FABRIC_COLOUR>> canvas overalls over a <<FABRIC_PATTERN>> shirt",
+                "silk": "<<FABRIC_PATTERN>> silks",
+                "leathers": "<<LEATHER_COLOUR>> leathers",
+                "cloth jacket": "a <<FABRIC_COLOUR>> cloth jacket over a <<FABRIC_PATTERN>> shirt"
+            },
+            "FABRIC_PATTERN": {
+                "solid": "solid <<FABRIC_COLOUR>>",
+                "solid2": "solid <<FABRIC_COLOUR>>",
+                "solid3": "solid <<FABRIC_COLOUR>>",
+                "embroidered": "hand-embroidered <<FABRIC_COLOUR>>",
+                "plaid": "<<FABRIC_COLOUR>> plaid",
+                "houndtooth": "houndstooth",
+                "floral": "floral-print",
+                "star": "star-print"
+            },
+            "METAL_COLOUR": {
+                "1": "blackened steel",
+                "2": "burnished steel",
+                "3": "mirror-polished steel",
+                "4": "grey steel",
+                "5": "browned steel",
+                "6": "gold-plated",
+                "7": "rust-kissed steel",
+                "8": "brass",
+                "9": "copper-plated",
+                "10": "cobalt-blue steel"
+            },
+            "LEATHER_COLOUR": {
+                "1": "<<DARK_SKIN>>",
+                "2": "<<DARK_SKIN>>",
+                "3": "<<RUDDY_SKIN>>",
+                "4": "dyed <<FABRIC_COLOUR>>"
+            },
+            "ACCESSORY": {
+                "default": "<<ACCESSORY_DEFAULT>>",
+                "wizard": "<<ACCESSORY_MAGIC>>",
+                "witcher": "<<ACCESSORY_MAGIC>>",
+                "cleric": "<<ACCESSORY_RELIGIOUS>>",
+                "paladin": "<<ACCESSORY_RELIGIOUS>>",
+                "priest": "<<ACCESSORY_RELIGIOUS>>",
+                "monk": "<<ACCESSORY_RELIGIOUS>>",
+                "banker": "<<ACCESSORY_WEALTHY>>",
+                "knight": "<<ACCESSORY_WEALTHY>>",
+                "merchant": "<<ACCESSORY_WEALTHY>>"
+            },
+            "ACCESSORY_DEFAULT": {
+                "default": "no accessories of note",
+                "1": "a wide-brimmed <<FABRIC_COLOUR>> hat",
+                "2": "a <<FABRIC_COLOUR>> flatcap",
+                "3": "a <<FABRIC_COLOUR>> bowtie",
+                "4": "a simple <<METAL_COLOUR>> pendant",
+                "5": "a plain <<METAL_COLOUR>> ring",
+                "6": "a <<LEATHER_COLOUR>> leather shoulder bag",
+                "7": "a <<LEATHER_COLOUR>> leather backpack",
+                "8": "a <<FABRIC_COLOUR>> scarf",
+                "9": "a <<LEATHER_COLOUR>> toolbelt",
+                "10": "<<METAL_COLOUR>> glasses"
+            },
+            "ACCESSORY_MAGIC": {
+                "default": "<<ACCESSORY_DEFAULT>>",
+                "1": "a portable alchemical lab strapped to <<THEIR | GENDER>> back",
+                "2": "an elaborate set of <<METAL_COLOUR>> glasses with folding lenses",
+                "3": "belt pouches full of strange-smelling reagents",
+                "4": "a telescoping spyglass hanging from <<THEIR | GENDER>> belt",
+                "5": "a floppy, conical hat in the wizardly style",
+                "6": "glowing runes floating just over <<THEIR | GENDER>> [[SKIN_COVERING]]"
+            },
+            "ACCESSORY_RELIGIOUS": {
+                "default": "<<ACCESSORY_DEFAULT>>",
+                "1": "the sacred symbol of <<THEIR | GENDER>> deity on their chest",
+                "2": "a small censer dangling from a chain on <<THEIR | GENDER>> hip",
+                "3": "a hand sprinkler for holy water in a peeking out of one pocket",
+                "4": "a scroll case containing sacred scripture on their belt",
+                "5": "a heavy handheld icon, wrought from <<METAL_COLOUR>>, on <<THEIR | GENDER>> belt",
+                "6": "a priest's collar",
+                "7": "a <<METAL_COLOUR>> pendant cast in the shape of the sacred symbol of <<THEIR | GENDER>> deity"
+            },
+            "ACCESSORY_WEALTHY": {
+                "default": "<<ACCESSORY_DEFAULT>>",
+                "1": "a <<METAL_COLOUR>> pendant wrought in an elaborate design",
+                "2": "a <<METAL_COLOUR>> ring with a large <<SCALES_COLOUR>> gem",
+                "3": "a particularly ostentatious hat",
+                "4": "a long scarf of <<FABRIC_COLOUR>> silk",
+                "5": "a loudly-jangling coinpurse on <<THEIR | GENDER>> hip",
+                "6": "no fashion sense whatsoever, given the number of mismatched accessories <<THEY_HAVE_LOWER | GENDER>>"
+            },
+            "WEAPON": {
+                "light": "<<THEY_CARRY | GENDER>> <<WEAPON_LIGHT>>.",
+                "medium": "<<THEY_CARRY | GENDER>> <<WEAPON_MEDIUM>>.",
+                "heavy": "<<THEY_CARRY | GENDER>> <<WEAPON_HEAVY>>.",
+                "instument": "<<THEY_CARRY | GENDER>> <<WEAPON_INSTRUMENT>>.",
+                "none": "<<THEY_ARE | GENDER>> unarmed."
+            },
+            "WEAPON_LIGHT": {
+                "1": "a <<METAL_COLOUR>> dagger in a small scabbard",
+                "2": "a pair of matching <<METAL_COLOUR>> daggers on <<THEIR | GENDER>> belt",
+                "3": "a small crossbow in a quick-draw holster",
+                "4": "a rapier at <<THEIR | GENDER>> hip",
+                "5": "a <<METAL_COLOUR>> baton tucked into <<THEIR | GENDER>> belt",
+                "6": "a <<METAL_COLOUR>> hatchet tucked into <<THEIR | GENDER>> belt"
+            },
+            "WEAPON_MEDIUM": {
+                "1": "a one-handed <<METAL_COLOUR>> sword in hip-mounted sheath",
+                "2": "a pair of matching <<METAL_COLOUR>> swords on <<THEIR | GENDER>> belt",
+                "3": "a shortbow in a leg-mounted quiver",
+                "4": "a <<METAL_COLOUR>> warhammer hanging from a leather thong on <<THEIR | GENDER>> belt",
+                "5": "a <<METAL_COLOUR>> mace hanging from a leather thong on <<THEIR | GENDER>> belt",
+                "6": "a <<METAL_COLOUR>> battleaxe hanging from a leather thong on <<THEIR | GENDER>> belt",
+                "7": "a short <<METAL_COLOUR>> spear strapped across <<THEIR | GENDER>> back"
+            },
+            "WEAPON_HEAVY": {
+                "1": "a one-handed <<METAL_COLOUR>> sword paired with a painted <<FABRIC_COLOUR>> shield",
+                "2": "a two-handed <<METAL_COLOUR>> sword in a side-mounted sheath",
+                "3": "a longbow in a back-mounted quiver",
+                "4": "a <<METAL_COLOUR>> flail paired with a painted <<FABRIC_COLOUR>> shield",
+                "5": "a <<METAL_COLOUR>> battleaxe paired with a painted <<FABRIC_COLOUR>> shield",
+                "6": "a <<METAL_COLOUR>> warhammer paired with a painted <<FABRIC_COLOUR>> shield",
+                "7": "a long <<METAL_COLOUR>> spear in their hands",
+                "8": "a long <<METAL_COLOUR>> halberd in their hands",
+                "9": "a long <<METAL_COLOUR>> glaive in their hands"
+            },
+            "WEAPON_INSTRUMENT": {
+                "1": "a flute case at <<THEIR | GENDER>> side",
+                "2": "a violin case at <<THEIR | GENDER>> side",
+                "3": "a lute strapped to <<THEIR | GENDER>> back",
+                "4": "a set of small drums hanging from a harness",
+                "5": "a set of panpipes hanging from <<THEIR | GENDER>> belt",
+                "6": "a valved horn hanging from <<THEIR | GENDER>> belt",
+                "7": "a lyre strapped to <<THEIR | GENDER>> back",
+                "8": "a hurdy-gurdy case at <<THEIR | GENDER>> side",
+                "9": "a portative organ case strapped to <<THEIR | GENDER>> back"
+            },
+            "DEMEANOUR": {
+                "default": "<<THEY | GENDER>> look<<PLURAL_IF_NOT_NB | GENDER>> at you with <<EMOTION>>."
+            },
+            "EMOTION": {
+                "1": "disdain",
+                "2": "curiosity",
+                "3": "disinterest",
+                "4": "admiration",
+                "5": "self-importance",
+                "6": "an unxeplained sadness",
+                "7": "a warm smile",
+                "8": "bemusement",
+                "9": "suspicious eyes",
+                "10": "caution"
+            }
+        },
+        "variables": {
+            "SKIN_COVERING": "skin"
+        }
+    }
+}

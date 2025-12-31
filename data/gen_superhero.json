@@ -1,0 +1,641 @@
+{
+    "generator": {
+        "tags": {
+            "START": {
+                "1": "<<SET_POWER>><<SET_STYLE>><<NAME_PATTERN>>"
+            },
+            "SET_POWER": {
+                "1": "[[POWER = STRENGTH]]",
+                "2": "[[POWER = SPEED]]",
+                "3": "[[POWER = MAGIC]]",
+                "4": "[[POWER = FIRE]]",
+                "5": "[[POWER = WATER]]",
+                "6": "[[POWER = EARTH]]",
+                "7": "[[POWER = AIR]]",
+                "8": "[[POWER = ELECTRICITY]]",
+                "9": "[[POWER = LIGHT]]",
+                "10": "[[POWER = DARKNESS]]",
+                "11": "[[POWER = PLANT]]",
+                "12": "[[POWER = ANIMAL]]"
+            },
+            "SET_STYLE": {
+                "1": "[[STYLE = MAN]]",
+                "2": "[[STYLE = WOMAN]]",
+                "3": "[[STYLE = DEFENDER]]",
+                "4": "[[STYLE = ATTACKER]]",
+                "5": "[[STYLE = SNEAKY]]",
+                "6": "[[STYLE = INTELLIGENT]]",
+                "7": "[[STYLE = LOVING]]",
+                "8": "[[STYLE = DARK]]",
+                "9": "[[STYLE = NIMBLE]]",
+                "10": "[[STYLE = MONSTROUS]]"
+            },
+            "NAME_PATTERN": {
+                "1": "<<ADJ | POWER>><<NOUN_LOWER | STYLE>>",
+                "2": "<<ADJ | STYLE>><<NOUN_LOWER | POWER>>",
+                "3": "<<ADJ | POWER>> <<NOUN | STYLE>>",
+                "4": "<<ADJ | STYLE>> <<NOUN | POWER>>",
+                "5": "<<ADJ | POWER>>-<<NOUN | STYLE>>",
+                "6": "<<ADJ | STYLE>>-<<NOUN | POWER>>",
+                "7": "<<TITLE | STYLE>> <<NOUN | POWER>>",
+                "8": "<<COLOUR>> <<NOUN | POWER>>",
+                "9": "<<COLOUR>> <<NOUN | STYLE>>"
+            },
+            "ADJ": {
+                "STRENGTH": "<<ADJ_STRENGTH>>",
+                "SPEED": "<<ADJ_SPEED>>",
+                "MAGIC": "<<ADJ_MAGIC>>",
+                "FIRE": "<<ADJ_FIRE>>",
+                "WATER": "<<ADJ_WATER>>",
+                "EARTH": "<<ADJ_EARTH>>",
+                "AIR": "<<ADJ_AIR>>",
+                "ELECTRICITY": "<<ADJ_ELECTRICITY>>",
+                "LIGHT": "<<ADJ_LIGHT>>",
+                "DARKNESS": "<<ADJ_DARKNESS>>",
+                "PLANT": "<<ADJ_PLANT>>",
+                "ANIMAL": "<<ADJ_ANIMAL>>",
+                "MAN": "<<ADJ_MAN>>",
+                "WOMAN": "<<ADJ_WOMAN>>",
+                "DEFENDER": "<<ADJ_DEFENDER>>",
+                "ATTACKER": "<<ADJ_ATTACKER>>",
+                "SNEAKY": "<<ADJ_SNEAKY>>",
+                "INTELLIGENT": "<<ADJ_INTELLIGENT>>",
+                "LOVING": "<<ADJ_LOVING>>",
+                "DARK": "<<ADJ_DARK>>",
+                "NIMBLE": "<<ADJ_NIMBLE>>",
+                "MONSTROUS": "<<ADJ_MONSTROUS>>"
+            },
+            "NOUN": {
+                "STRENGTH": "<<NOUN_STRENGTH>>",
+                "SPEED": "<<NOUN_SPEED>>",
+                "MAGIC": "<<NOUN_MAGIC>>",
+                "FIRE": "<<NOUN_FIRE>>",
+                "WATER": "<<NOUN_WATER>>",
+                "EARTH": "<<NOUN_EARTH>>",
+                "AIR": "<<NOUN_AIR>>",
+                "ELECTRICITY": "<<NOUN_ELECTRICITY>>",
+                "LIGHT": "<<NOUN_LIGHT>>",
+                "DARKNESS": "<<NOUN_DARKNESS>>",
+                "PLANT": "<<NOUN_PLANT>>",
+                "ANIMAL": "<<NOUN_ANIMAL>>",
+                "MAN": "<<NOUN_MAN>>",
+                "WOMAN": "<<NOUN_WOMAN>>",
+                "DEFENDER": "<<NOUN_DEFENDER>>",
+                "ATTACKER": "<<NOUN_ATTACKER>>",
+                "SNEAKY": "<<NOUN_SNEAKY>>",
+                "INTELLIGENT": "<<NOUN_INTELLIGENT>>",
+                "LOVING": "<<NOUN_LOVING>>",
+                "DARK": "<<NOUN_DARK>>",
+                "NIMBLE": "<<NOUN_NIMBLE>>",
+                "MONSTROUS": "<<NOUN_MONSTROUS>>"
+            },
+			"NOUN_LOWER": {
+                "STRENGTH": "<<NOUN_LOWER_STRENGTH>>",
+                "SPEED": "<<NOUN_LOWER_SPEED>>",
+                "MAGIC": "<<NOUN_LOWER_MAGIC>>",
+                "FIRE": "<<NOUN_LOWER_FIRE>>",
+                "WATER": "<<NOUN_LOWER_WATER>>",
+                "EARTH": "<<NOUN_LOWER_EARTH>>",
+                "AIR": "<<NOUN_LOWER_AIR>>",
+                "ELECTRICITY": "<<NOUN_LOWER_ELECTRICITY>>",
+                "LIGHT": "<<NOUN_LOWER_LIGHT>>",
+                "DARKNESS": "<<NOUN_LOWER_DARKNESS>>",
+                "PLANT": "<<NOUN_LOWER_PLANT>>",
+                "ANIMAL": "<<NOUN_LOWER_ANIMAL>>",
+                "MAN": "<<NOUN_LOWER_MAN>>",
+                "WOMAN": "<<NOUN_LOWER_WOMAN>>",
+                "DEFENDER": "<<NOUN_LOWER_DEFENDER>>",
+                "ATTACKER": "<<NOUN_LOWER_ATTACKER>>",
+                "SNEAKY": "<<NOUN_LOWER_SNEAKY>>",
+                "INTELLIGENT": "<<NOUN_LOWER_INTELLIGENT>>",
+                "LOVING": "<<NOUN_LOWER_LOVING>>",
+                "DARK": "<<NOUN_LOWER_DARK>>",
+                "NIMBLE": "<<NOUN_LOWER_NIMBLE>>",
+                "MONSTROUS": "<<NOUN_LOWER_MONSTROUS>>"
+            },
+            "TITLE": {
+                "MAN": "<<TITLE_MAN>>",
+                "WOMAN": "<<TITLE_WOMAN>>",
+                "DEFENDER": "<<TITLE_DEFENDER>>",
+                "ATTACKER": "<<TITLE_ATTACKER>>",
+                "SNEAKY": "<<TITLE_SNEAKY>>",
+                "INTELLIGENT": "<<TITLE_INTELLIGENT>>",
+                "LOVING": "<<TITLE_LOVING>>",
+                "DARK": "<<TITLE_DARK>>",
+                "NIMBLE": "<<TITLE_NIMBLE>>",
+                "MONSTROUS": "<<TITLE_MONSTROUS>>"
+            },
+            "COLOUR": {
+                "1": "Red",
+                "2": "Orange",
+                "3": "Yellow",
+                "4": "Green",
+                "5": "Azure",
+                "6": "Blue",
+                "7": "Violet",
+                "8": "Purple",
+                "9": "Pink",
+                "10": "Crimson",
+                "11": "Brown",
+                "12": "White",
+                "13": "Black",
+                "14": "Gray"
+            },
+            "ADJ_STRENGTH": {
+                "1": "Super",
+                "2": "Mighty",
+                "3": "Power",
+                "4": "Muscle",
+                "5": "Strong"
+            },
+            "ADJ_SPEED": {
+                "1": "Quick",
+                "2": "Fast",
+                "3": "Sonic",
+                "4": "Speed",
+                "5": "Blink"
+            },
+            "ADJ_MAGIC": {
+                "1": "Mage",
+                "2": "Hex",
+                "3": "Strange",
+                "4": "Silver",
+                "5": "Gods"
+            },
+            "ADJ_FIRE": {
+                "1": "Fire",
+                "2": "Flame",
+                "3": "Heat",
+                "4": "Char",
+                "5": "Smoke"
+            },
+            "ADJ_WATER": {
+                "1": "Aqua",
+                "2": "Water",
+                "3": "Splash",
+                "4": "Wave",
+                "5": "Rain"
+            },
+            "ADJ_EARTH": {
+                "1": "Stone",
+                "2": "Rock",
+                "3": "Hard",
+                "4": "Sand",
+                "5": "Mountain"
+            },
+            "ADJ_AIR": {
+                "1": "Zephyr",
+                "2": "Wind",
+                "3": "Sky",
+                "4": "Gale",
+                "5": "Air"
+            },
+            "ADJ_ELECTRICITY": {
+                "1": "Live",
+                "2": "Static",
+                "3": "Shock",
+                "4": "Lightning",
+                "5": "Spark"
+            },
+            "ADJ_LIGHT": {
+                "1": "Photon",
+                "2": "Light",
+                "3": "Aura",
+                "4": "Sun",
+                "5": "Solar"
+            },
+            "ADJ_DARKNESS": {
+                "1": "Shadow",
+                "2": "Night",
+                "3": "Gloom",
+                "4": "Dead",
+                "5": "Dark"
+            },
+            "ADJ_PLANT": {
+                "1": "Leaf",
+                "2": "Tree",
+                "3": "Swamp",
+                "4": "Forest",
+                "5": "Flora"
+            },
+            "ADJ_ANIMAL": {
+                "1": "Wild",
+                "2": "Beast",
+                "3": "Venom",
+                "4": "Life",
+                "5": "Fauna"
+            },
+            "ADJ_MAN": {
+                "1": "Lord",
+                "2": "Man",
+                "3": "Guy"
+            },
+            "ADJ_WOMAN": {
+                "1": "Woman",
+                "2": "She",
+                "4": "Lady"
+            },
+            "ADJ_DEFENDER": {
+                "1": "Knight",
+                "2": "Shield",
+                "3": "Peace",
+                "4": "Law"
+            },
+            "ADJ_ATTACKER": {
+                "1": "War",
+                "2": "Blade",
+                "3": "Brave",
+                "4": "Break"
+            },
+            "ADJ_SNEAKY": {
+                "1": "Quiet",
+                "2": "Secret",
+                "3": "Silent",
+                "4": "Ghost"
+            },
+            "ADJ_INTELLIGENT": {
+                "1": "Mind",
+                "2": "Sharp",
+                "3": "Brain",
+                "4": "Bright"
+            },
+            "ADJ_LOVING": {
+                "1": "Heart",
+                "2": "Love",
+                "3": "Over",
+                "4": "All"
+            },
+            "ADJ_DARK": {
+                "1": "Blood",
+                "2": "Raven",
+                "3": "Black",
+                "4": "Dark"
+            },
+            "ADJ_NIMBLE": {
+                "1": "Rogue",
+                "2": "Knife",
+                "3": "Dagger",
+                "4": "Trick"
+            },
+            "ADJ_MONSTROUS": {
+                "1": "Monster",
+                "2": "Odd",
+                "3": "Weird",
+                "4": "Savage"
+            },
+            "NOUN_STRENGTH": {
+                "1": "Might",
+                "2": "Hulk",
+                "3": "Titan",
+                "4": "Force",
+                "5": "Power"
+            },
+            "NOUN_SPEED": {
+                "1": "Flash",
+                "2": "Drive",
+                "3": "Run",
+                "4": "Speed",
+                "5": "Blink"
+            },
+            "NOUN_MAGIC": {
+                "1": "Magic",
+                "2": "Rune",
+                "3": "Strange",
+                "4": "Witch",
+                "5": "Mancer"
+            },
+            "NOUN_FIRE": {
+                "1": "Flame",
+                "2": "Blaze",
+                "3": "Smoke",
+                "4": "Burst",
+                "5": "Torch"
+            },
+            "NOUN_WATER": {
+                "1": "Flow",
+                "2": "Water",
+                "3": "Mariner",
+                "4": "Mist",
+                "5": "Rain"
+            },
+            "NOUN_EARTH": {
+                "1": "Stone",
+                "2": "Rock",
+                "3": "Miner",
+                "4": "Terra",
+                "5": "Mountain"
+            },
+            "NOUN_AIR": {
+                "1": "Breeze",
+                "2": "Wind",
+                "3": "Sky",
+                "4": "Gale",
+                "5": "Storm"
+            },
+            "NOUN_ELECTRICITY": {
+                "1": "Line",
+                "2": "Wire",
+                "3": "Shock",
+                "4": "Bolt",
+                "5": "Spark"
+            },
+            "NOUN_LIGHT": {
+                "1": "Shine",
+                "2": "Light",
+                "3": "Sight",
+                "4": "Sun",
+                "5": "Day"
+            },
+            "NOUN_DARKNESS": {
+                "1": "Shade",
+                "2": "Night",
+                "3": "Gloom",
+                "4": "Devil",
+                "5": "Fall"
+            },
+            "NOUN_PLANT": {
+                "1": "Leaf",
+                "2": "Tree",
+                "3": "Wood",
+                "4": "Root",
+                "5": "Grass"
+            },
+            "NOUN_ANIMAL": {
+                "1": "Cat",
+                "2": "Beast",
+                "3": "Wolf",
+                "4": "Bird",
+                "5": "Snake"
+            },
+            "NOUN_MAN": {
+                "1": "Man",
+                "2": "Man",
+                "3": "Lord",
+                "4": "Guy",
+                "5": "Boy",
+                "6": "Lad"
+            },
+            "NOUN_WOMAN": {
+                "1": "Woman",
+                "2": "Woman",
+                "3": "Gal",
+                "4": "Lady",
+                "5": "Girl",
+                "6": "Lass"
+            },
+            "NOUN_DEFENDER": {
+                "1": "Knight",
+                "2": "Shield",
+                "3": "Peace",
+                "4": "Law"
+            },
+            "NOUN_ATTACKER": {
+                "1": "Fist",
+                "2": "Blade",
+                "3": "Shot",
+                "4": "Break"
+            },
+            "NOUN_SNEAKY": {
+                "1": "Ghost",
+                "2": "Thief",
+                "3": "Whisper",
+                "4": "Spy"
+            },
+            "NOUN_INTELLIGENT": {
+                "1": "Mind",
+                "2": "Sage",
+                "3": "Doc",
+                "4": "Master"
+            },
+            "NOUN_LOVING": {
+                "1": "Heart",
+                "2": "Soul",
+                "3": "Angel",
+                "4": "Giver"
+            },
+            "NOUN_DARK": {
+                "1": "Blood",
+                "2": "Demon",
+                "3": "Devil",
+                "4": "Doom"
+            },
+            "NOUN_NIMBLE": {
+                "1": "Turner",
+                "2": "Cloak",
+                "3": "Spider",
+                "4": "Trick"
+            },
+            "NOUN_MONSTROUS": {
+                "1": "Monster",
+                "2": "Thing",
+                "3": "Brute",
+                "4": "Fiend"
+            },
+            "NOUN_LOWER_STRENGTH": {
+                "1": "might",
+                "2": "hulk",
+                "3": "titan",
+                "4": "force",
+                "5": "power"
+            },
+            "NOUN_LOWER_SPEED": {
+                "1": "flash",
+                "2": "drive",
+                "3": "run",
+                "4": "speed",
+                "5": "blink"
+            },
+            "NOUN_LOWER_MAGIC": {
+                "1": "magic",
+                "2": "rune",
+                "3": "strange",
+                "4": "witch",
+                "5": "mancer"
+            },
+            "NOUN_LOWER_FIRE": {
+                "1": "flame",
+                "2": "blaze",
+                "3": "smoke",
+                "4": "burst",
+                "5": "torch"
+            },
+            "NOUN_LOWER_WATER": {
+                "1": "flow",
+                "2": "water",
+                "3": "mariner",
+                "4": "mist",
+                "5": "rain"
+            },
+            "NOUN_LOWER_EARTH": {
+                "1": "stone",
+                "2": "rock",
+                "3": "miner",
+                "4": "terra",
+                "5": "mountain"
+            },
+            "NOUN_LOWER_AIR": {
+                "1": "breeze",
+                "2": "wind",
+                "3": "sky",
+                "4": "gale",
+                "5": "storm"
+            },
+            "NOUN_LOWER_ELECTRICITY": {
+                "1": "line",
+                "2": "wire",
+                "3": "shock",
+                "4": "bolt",
+                "5": "spark"
+            },
+            "NOUN_LOWER_LIGHT": {
+                "1": "shine",
+                "2": "light",
+                "3": "sight",
+                "4": "sun",
+                "5": "day"
+            },
+            "NOUN_LOWER_DARKNESS": {
+                "1": "shade",
+                "2": "night",
+                "3": "gloom",
+                "4": "devil",
+                "5": "fall"
+            },
+            "NOUN_LOWER_PLANT": {
+                "1": "leaf",
+                "2": "tree",
+                "3": "wood",
+                "4": "root",
+                "5": "grass"
+            },
+            "NOUN_LOWER_ANIMAL": {
+                "1": "cat",
+                "2": "beast",
+                "3": "wolf",
+                "4": "bird",
+                "5": "snake"
+            },
+            "NOUN_LOWER_MAN": {
+                "1": "man",
+                "2": "man",
+                "3": "lord",
+                "4": "guy",
+                "5": "boy",
+                "6": "lad"
+            },
+            "NOUN_LOWER_WOMAN": {
+                "1": "woman",
+                "2": "woman",
+                "3": "gal",
+                "4": "lady",
+                "5": "girl",
+                "6": "lass"
+            },
+            "NOUN_LOWER_DEFENDER": {
+                "1": "knight",
+                "2": "shield",
+                "3": "peace",
+                "4": "law"
+            },
+            "NOUN_LOWER_ATTACKER": {
+                "1": "fist",
+                "2": "blade",
+                "3": "shot",
+                "4": "break"
+            },
+            "NOUN_LOWER_SNEAKY": {
+                "1": "ghost",
+                "2": "thief",
+                "3": "whisper",
+                "4": "spy"
+            },
+            "NOUN_LOWER_INTELLIGENT": {
+                "1": "mind",
+                "2": "sage",
+                "3": "doc",
+                "4": "master"
+            },
+            "NOUN_LOWER_LOVING": {
+                "1": "heart",
+                "2": "soul",
+                "3": "angel",
+                "4": "giver"
+            },
+            "NOUN_LOWER_DARK": {
+                "1": "blood",
+                "2": "demon",
+                "3": "devil",
+                "4": "doom"
+            },
+            "NOUN_LOWER_NIMBLE": {
+                "1": "turner",
+                "2": "cloak",
+                "3": "spider",
+                "4": "trick"
+            },
+            "NOUN_LOWER_MONSTROUS": {
+                "1": "monster",
+                "2": "thing",
+                "3": "brute",
+                "4": "fiend"
+            },
+            "TITLE_MAN": {
+                "1": "Mr.",
+                "2": "Mister",
+                "3": "Lord",
+                "4": "The Human"
+            },
+            "TITLE_WOMAN": {
+                "1": "Ms.",
+                "2": "Mrs.",
+                "3": "Lady",
+                "4": "Madam",
+                "5": "She",
+                "6": "The Human"
+            },
+            "TITLE_DEFENDER": {
+                "1": "Sir",
+                "2": "Captain"
+            },
+            "TITLE_ATTACKER": {
+                "1": "Commander",
+                "2": "Corporal"
+            },
+            "TITLE_SNEAKY": {
+                "1": "The Phantom",
+                "2": "Infiltrator",
+                "3": "Agent"
+            },
+            "TITLE_INTELLIGENT": {
+                "1": "Doctor",
+                "3": "Doc",
+                "4": "Professor"
+            },
+            "TITLE_LOVING": {
+                "1": "Saint",
+                "2": "Father",
+                "3": "Sister",
+                "4": "Brother"
+            },
+            "TITLE_DARK": {
+                "1": "Baron",
+                "2": "Count",
+                "3": "Mama"
+            },
+            "TITLE_NIMBLE": {
+                "1": "Gentleman",
+                "2": "Master",
+                "3": "Mistress"
+            },
+            "TITLE_MONSTROUS": {
+                "1": "The Uncanny",
+                "2": "Man",
+                "3": "The"
+            }
+        },
+        "variables": {
+            "TYPE": "STRENGTH",
+            "STYLE": "MAN"
+        }
+    }
+}

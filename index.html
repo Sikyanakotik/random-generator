@@ -6,7 +6,7 @@
     <title>Generator</title>
 
     <!-- PyScript v2 core loader -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
+    <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" /> -->
     <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
 
     <!-- PyScript config -->
@@ -16,7 +16,8 @@
         "files": [
             "src/generator_pyscipt.py",
             "data/hello_world.json",
-            "data/variable_test.json"
+            "data/variable_test.json",
+            "data/gen_superhero.json"
         ]
       }
     }
@@ -24,12 +25,25 @@
   </head>
   <body>
     <h1>Generator</h1>
-    <select id="generator-select">
+    <p>Generator type: <select id="generator-select">
+        <option value="data/gen_superhero.json">Superhero names</option>
+        <option value="data/gen_npc_description.json">NPC descriptions</option>
         <option value="data/hello_world.json">Hello world</option>
-        <option value="data/variable_test.json">Variable test</option>
-    </select>
-
+    </select><br />
+    Number of generations: <select id="gencount-select">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+    </select></p>
     <button id="generate-btn">Generate</button>
+    <hr />
     <div id="output"></div>
 
     <py-script src="src/generator_pyscript.py"></py-script>

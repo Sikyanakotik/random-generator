@@ -2,6 +2,7 @@ from js import document, fetch
 from pyodide.ffi import create_proxy
 import json
 import random
+import copy
 from enum import Enum
 
 START_TAG = "START"
@@ -51,13 +52,13 @@ def find_next_tag(text: str) -> dict:
 
     # Catch unmatched delimiters
     if (SDL_found) and (not SDR_found):
-        raise Exception(f'Unmatched {SELECT_DELIMITER_LEFT} delimiter.')
+        raise Exception(f'Unmatched {SELECT_DELIMITER_LEFT} delimiter.\ntext = {text}')
     if (not SDL_found) and (SDR_found):
-        raise Exception(f'Unmatched {SELECT_DELIMITER_RIGHT} delimiter.')
+        raise Exception(f'Unmatched {SELECT_DELIMITER_RIGHT} delimiter.\ntext = {text}')
     if (VDL_found) and (not VDR_found):
-        raise Exception(f'Unmatched {VARIABLE_DELIMITER_LEFT} delimiter.')
+        raise Exception(f'Unmatched {VARIABLE_DELIMITER_LEFT} delimiter.\ntext = {text}')
     if (not VDL_found) and (VDR_found):
-        raise Exception(f'Unmatched {VARIABLE_DELIMITER_RIGHT} delimiter.')
+        raise Exception(f'Unmatched {VARIABLE_DELIMITER_RIGHT} delimiter.\ntext = {text}')
 
     # If there are no tags, return TagType.NONE. (We're done!)
     if not (SDL_found or VDL_found):
@@ -79,7 +80,7 @@ def find_next_tag(text: str) -> dict:
         or (SELECT_DELIMITER_RIGHT in tag_text)
         or (VARIABLE_DELIMITER_LEFT in tag_text) 
         or (VARIABLE_DELIMITER_RIGHT in tag_text)):
-        raise Exception("Do not put delimiters inside tags. Use switch tags instead.")
+        raise Exception(f"Do not put delimiters inside tags. Use switch tags instead.\ntag_text = {tag_text}")
 
     if is_select_tag:
         if SELECT_SWITCH_DELIMITER in tag_text:
@@ -94,7 +95,8 @@ def find_next_tag(text: str) -> dict:
 
     return {"tag_type": tag_type, "before_text": before_text, "tag_text": tag_text, "after_text": after_text}
 
-def generate(text, generator):
+def generate(text, gen):
+    generator = copy.deepcopy(gen)
     iterations_remaining = MAX_GENERATOR_ITERATIONS
 
     while iterations_remaining > 0:
@@ -151,17 +153,32 @@ def generate(text, generator):
                 + f'Text: {text}')
 
 
-async def generate_once(event=None):
+#async def generate_once(event=None):
+#    generator_path = document.querySelector("#generator-select").value
+#    gen = await load_generator(generator_path)
+#    text = f"{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}"
+#    result = generate(text, gen)
+#
+#    output_div = document.querySelector("#output")
+#    output_div.innerText = result
+
+async def generate_web(event=None):
     generator_path = document.querySelector("#generator-select").value
-    gen = await load_generator(generator_path)
-    text = f"{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}"
-    result = generate(text, gen)
+    generation_count = int(document.querySelector("#gencount-select").value)
+    generator = await load_generator(generator_path)
+    output = ""
+
+    for _ in range(generation_count):
+        text = f"{SELECT_DELIMITER_LEFT}{START_TAG}{SELECT_DELIMITER_RIGHT}"
+        result = generate(text, generator)
+        output += f"\n{result}"
+    output = output[1:] # Remove the initial '\n'.
 
     output_div = document.querySelector("#output")
-    output_div.innerText = result
+    output_div.innerText = output
 
 
 # Hook up page elements after the page loads
-generate_once_proxy = create_proxy(generate_once)
+generate_web_proxy = create_proxy(generate_web)
 btn = document.querySelector("#generate-btn")
-btn.addEventListener("click", generate_once_proxy)
+btn.addEventListener("click", generate_web_proxy)
