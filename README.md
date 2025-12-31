@@ -159,7 +159,7 @@ Example:
 ```
 
 - If VERB is "Run", we use LOWER_VERB["Run"] → "run".
-- If VERB is "Pet the dog", we use LOWER_VERB["Pet the dog"] → "Pet the dog".
+- If VERB is "Pet the dog", we use LOWER_VERB["Pet the dog"] → "pet the dog".
 - If VERB is not a valid key, we use LOWER_VERB["default"] → "default".
 
 Combined with the earlier parts, one possible full output of the generator is:
